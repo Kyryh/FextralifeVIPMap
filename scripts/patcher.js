@@ -1,12 +1,9 @@
-function patcher(script) {
-    // TODO
-    console.log(script)
-}
+// Set the vip flag
+iiv = true
 
-let scripts = document.getElementsByTagName("script")
+// Remove the initialized map
+map.off()
+map.remove()
 
-// only get scripts without a src attribute
-let filtered_scripts = [...scripts].filter(s => !s.src)
-
-// patch the last script
-patcher(filtered_scripts[1])
+// Re-initialize the interactive map
+init()
