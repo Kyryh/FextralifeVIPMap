@@ -18,6 +18,7 @@ for (let i = 0; i < 5; i++) {
 
 // Patch the loadSlotData to return the data stored locally
 // instead of making a call to the fextralife server
+// This is needed because the server responds with 403 for non-vip users
 loadSlotData = function(mapId, userId, callback) {
     callback(window.localStorage["slot" + currentSlot + "items"])
 }
