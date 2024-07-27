@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
-    "name": "Fextralife VIP Features",
-    "description": "Enables Fextralife VIP features without having to pay it",
+    "name": "Fextralife VIP Map",
+    "description": "Enables Fextralife VIP-only map features without having to pay for it",
     "version": "1.0",
     "content_scripts": [
         {
