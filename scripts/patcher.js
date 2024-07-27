@@ -56,4 +56,15 @@ updateCompleted = function(isCompleted, mapId, itemId) {
 }
 
 // Refresh the map, since it was generated before patching the methods
-refreshSlot()
+// Subscribing to DOMContentLoaded didn't work, so I had to use this hacky solution
+function refresh() {
+    if (map === null) {
+        // If the map is null, wait a second before refreshing
+        setTimeout(refresh, 1000)
+    } else {
+        // The map is loaded, refresh
+        refreshSlot()
+    }
+}
+
+refresh()
