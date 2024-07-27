@@ -2,8 +2,12 @@
 for (let i = 0; i < 5; i++) {
     let key = "slot" + i + "items"
     if (!window.localStorage[key]) {
-        window.localStorage[key] =  "[]"
+        window.localStorage[key] =  "{}"
     }
+}
+
+function getItems(key) {
+    return JSON.parse(window.localStorage[key])
 }
 
 // // Not actually needed
@@ -20,19 +24,32 @@ for (let i = 0; i < 5; i++) {
 // instead of making a call to the fextralife server
 // This is needed because the server responds with 403 for non-vip users
 loadSlotData = function(mapId, userId, callback) {
-    callback(window.localStorage["slot" + currentSlot + "items"])
+    let items = getItems("slot" + currentSlot + "items")[mapId] ?? []
+
+    // Reformat the data before sending
+    let formattedItems = items.map(function(i) {
+        return {item: i}
+    })
+
+    callback(JSON.stringify(formattedItems))
 }
 
 // Add/remove checked/unchecked items
 updateCompleted = function(isCompleted, mapId, itemId) {
     let key = "slot" + currentSlot + "items"
-    let items = JSON.parse(window.localStorage[key])
+    let items = getItems(key)
+    let mapItems = items[mapId] ?? []
 
     if (isCompleted) {
-        items.push({"item": itemId})
+        mapItems.push(itemId)
     } else {
-        items = items.filter(item => item["item"] != itemId)
+        let itemIndex = mapItems.indexOf(itemId)
+        if (itemIndex !== -1) {
+            mapItems.splice(itemIndex, 1);
+        }
     }
+
+    items[mapId] = mapItems
 
     window.localStorage[key] = JSON.stringify(items)
     return true
