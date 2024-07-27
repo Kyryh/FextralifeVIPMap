@@ -19,6 +19,12 @@
                 "https://eldenring.wiki.fextralife.com/file/Elden-Ring/map-*"
             ],
             "world": "MAIN"
+        },
+        {
+            "js": ["scripts/postload.js"],
+            "matches": [
+                "https://eldenring.wiki.fextralife.com/Interactive+Map"
+            ]
         }
     ],
     "icons": {
