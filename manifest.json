@@ -25,6 +25,8 @@
         {
             "js": ["scripts/postload.js"],
             "matches": [
+                "https://fextralife.com/god-of-war-ragnarok-map-guide-checklist/",
+                "https://hogwartslegacy.wiki.fextralife.com/Hogwarts+Legacy+Map+Interactive",
                 "https://eldenring.wiki.fextralife.com/Interactive+Map"
             ]
         }

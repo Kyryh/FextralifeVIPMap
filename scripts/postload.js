@@ -1,4 +1,4 @@
-let mapTitle = document.getElementById("mapA")
+let map = document.getElementsByTagName("iframe")[0]
 
 // Add buttons for deleting the stored data
 for (let i = 0; i < 5; i++) {
@@ -10,5 +10,5 @@ for (let i = 0; i < 5; i++) {
         }
     }
     button.innerText = "Delete data from slot " + (i+1)
-    mapTitle.parentElement.insertBefore(button, mapTitle)
+    map.parentElement.insertBefore(button, map)
 }
