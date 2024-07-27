@@ -5,6 +5,14 @@
     "version": "1.0",
     "content_scripts": [
         {
+            "js": ["scripts/cookie_injector.js"],
+            "all_frames": true,
+            "matches": [
+                "https://eldenring.wiki.fextralife.com/file/Elden-Ring/map-*"
+            ],
+            "run_at": "document_start"
+        },
+        {
             "js": ["scripts/patcher.js"],
             "all_frames": true,
             "matches": [
