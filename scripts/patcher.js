@@ -35,7 +35,7 @@ loadSlotData = function(mapId, userId, callback) {
 }
 
 // Add/remove checked/unchecked items
-updateCompleted = function(isCompleted, mapId, itemId) {
+updateCompleted = function(isCompleted, mapId, itemId, callback) {
     let key = "slot" + currentSlot + "items"
     let items = getItems(key)
     let mapItems = items[mapId] ?? []
@@ -52,7 +52,7 @@ updateCompleted = function(isCompleted, mapId, itemId) {
     items[mapId] = mapItems
 
     window.localStorage[key] = JSON.stringify(items)
-    return true
+    callback(true)
 }
 
 // Refresh the map, since it was generated before patching the methods
