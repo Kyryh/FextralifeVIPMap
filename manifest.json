@@ -3,6 +3,11 @@
     "name": "Fextralife VIP Map",
     "description": "Enables Fextralife VIP-only map features without having to pay for it",
     "version": "1.1",
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "fextralifevipmap@kyryh"
+        }
+    },
     "content_scripts": [
         {
             "js": ["scripts/cookie_injector.js"],
